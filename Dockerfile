@@ -31,10 +31,8 @@ COPY janusgraph/memory.properties /work/janusgraph/conf/memory.properties
 COPY janusgraph/gremlin-server.yaml /work/janusgraph/conf/gremlin-server/gremlin-server.yaml
 
 COPY janusgraph/graphml/marvel.graphml /work/janusgraph/graphml/marvel.graphml
-COPY janusgraph/graphml/events.graphml /work/janusgraph/graphml/events.graphml
 
 COPY janusgraph/janus-inmemory-marvel.groovy /work/janusgraph/scripts/janus-inmemory-marvel.groovy
-COPY janusgraph/janus-inmemory-events.groovy /work/janusgraph/scripts/janus-inmemory-events.groovy
 
 COPY janusgraph/run.sh /work/janusgraph/run.sh
 
