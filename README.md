@@ -2,7 +2,7 @@
 Introduction to Modern Graph Analysis using opensource tools like Tinkerpop and Janusgraph
 
 
-## Steps
+## Start
 1. git clone https://github.com/rgomesf/join2018.git
 2. docker build --rm -f Dockerfile -t join2018:latest .
 3. docker run --rm --name=demo -d -p 80:80 -p 8182:8182 join2018
@@ -12,7 +12,7 @@ Introduction to Modern Graph Analysis using opensource tools like Tinkerpop and 
 7. :remote console
 8. Go to https://github.com/rgomesf/join2018/wiki/Exercises for the exercises  
 
-### Exit
+## Stop
 9. :q
 10. exit
 11. docker stop demo
