@@ -13,8 +13,8 @@ Introduction to Modern Graph Analysis using opensource tools like Tinkerpop and 
 8. Go to https://github.com/rgomesf/join2018/wiki/Exercises for the exercises  
 
 ## Stop
-9. :q
-10. exit
-11. docker stop demo
+1. :q
+2. exit
+3. docker stop demo
 
 **NOTE: Your run.sh encoding must be LR and not CRLF. Check the file after the pull**
