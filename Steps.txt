@@ -1,0 +1,50 @@
+docker run --rm --name=demo -d -p 80:80 -p 8182:8182 join2018 
+docker exec -it demo bash
+/work/janusgraph/bin/gremlin.sh
+:remote connect tinkerpop.server conf/remote.yaml session-managed
+:remote console
+
+------------------------------------------------------------------------
+
+g.V().hasLabel("movie").count()
+g.V().has('type','person').count()
+g.V().has('name','Thor').valueMap(true)
+
+https://github.com/rgomesf/join2018/wiki/Exercises
+
+http://localhost/graphexp/graphexp.html 
+
+------------------------------------------------------------------------
+
+http://www.imdb.com/title/tt4154664/
+
+Check if any of the persons exists
+g.V().has('name',within('Jude Law','Brie Larson','Gemma Chan','Samuel L. Jackson','Anna Boden','Ryan Fleck')).valueMap()
+
+Add the movie and its properties
+g.addV('movie').property('name','Captain Marvel').property('year',2018).property('type','movie')
+
+Add actors
+g.addV('person').property('name','Jude Law').property('type','person')
+g.addV('person').property('name','Brie Larson').property('type','person')
+g.addV('person').property('name','Gemma Chan').property('type','person')
+
+Add directors
+g.addV('person').property('name','Anna Boden').property('type','person')
+g.addV('person').property('name','Ryan Fleck').property('type','person')
+
+Make the commection between the actors and the movie
+g.V().has("name","Jude Law").addE('ACTS_IN').property('character','Mar-Vell').to(g.V().has("name","Captain Marvel"))
+g.V().has("name","Brie Larson").addE('ACTS_IN').property('character','Captain Marvel').to(g.V().has("name","Captain Marvel"))
+g.V().has("name","Gemma Chan").addE('ACTS_IN').property('character','Minn-Erva').to(g.V().has("name","Captain Marvel"))
+g.V().has("name","Samuel L. Jackson").addE('ACTS_IN').property('character','Nick Fury').to(g.V().has("name","Captain Marvel"))
+
+Make the commection between the directors and the movie
+g.V().has("name","Anna Boden").addE('DIRECTS').to(g.V().has("name","Captain Marvel"))
+g.V().has("name","Ryan Fleck").addE('DIRECTS').to(g.V().has("name","Captain Marvel"))
+
+In which movies we can see Nick Fury?
+g.E().has("character","Nick Fury").inV().values("name")
+
+Who are the directors of Captain Marvel
+g.V().has("name","Captain Marvel").in('DIRECTS').values("name")
