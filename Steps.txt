@@ -15,6 +15,7 @@ g.V().has('name','Thor').valueMap(true)
 https://github.com/rgomesf/join2018/wiki/Exercises
 
 http://localhost/graphexp/graphexp.html 
+Stan Lee
 
 ------------------------------------------------------------------------
 
