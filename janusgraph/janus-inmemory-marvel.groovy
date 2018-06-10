@@ -1,7 +1,7 @@
 // Criar um novo graph em memoria
 graph = JanusGraphFactory.open('inmemory')
 
-//Definir o schema. Não é obrigatorio, nas evita que o janusGraph ponha todas a propriedades como Object.clas
+//Definir o schema. Não é obrigatorio, nas evita que o janusGraph ponha todas a propriedades como Object.class
 
 // Definir as labels dos edges, que têm que ser unicas em todo o graph.
 mgmt = graph.openManagement()

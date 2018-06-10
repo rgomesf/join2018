@@ -22,24 +22,20 @@ Stan Lee
 http://www.imdb.com/title/tt4154664/
 
 Check if any of the persons exists
-g.V().has('name',within('Jude Law','Brie Larson','Gemma Chan','Samuel L. Jackson','Anna Boden','Ryan Fleck')).valueMap()
+g.V().has('name',within('Brie Larson','Samuel L. Jackson','Anna Boden','Ryan Fleck')).valueMap()
 
 Add the movie and its properties
 g.addV('movie').property('name','Captain Marvel').property('year',2018).property('type','movie')
 
 Add actors
-g.addV('person').property('name','Jude Law').property('type','person')
 g.addV('person').property('name','Brie Larson').property('type','person')
-g.addV('person').property('name','Gemma Chan').property('type','person')
 
 Add directors
 g.addV('person').property('name','Anna Boden').property('type','person')
 g.addV('person').property('name','Ryan Fleck').property('type','person')
 
 Make the commection between the actors and the movie
-g.V().has("name","Jude Law").addE('ACTS_IN').property('character','Mar-Vell').to(g.V().has("name","Captain Marvel"))
 g.V().has("name","Brie Larson").addE('ACTS_IN').property('character','Captain Marvel').to(g.V().has("name","Captain Marvel"))
-g.V().has("name","Gemma Chan").addE('ACTS_IN').property('character','Minn-Erva').to(g.V().has("name","Captain Marvel"))
 g.V().has("name","Samuel L. Jackson").addE('ACTS_IN').property('character','Nick Fury').to(g.V().has("name","Captain Marvel"))
 
 Make the commection between the directors and the movie
