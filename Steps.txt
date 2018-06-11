@@ -1,6 +1,6 @@
 //mode con:cols=180 lines=70
 
-docker run --rm --name=demo -d -p 80:80 -p 8182:8182 join2018 
+docker run --rm --name=demo -d -p 80:80 -p 8182:8182 join2018
 docker exec -it demo bash
 /work/janusgraph/bin/gremlin.sh
 :remote connect tinkerpop.server conf/remote.yaml session-managed
